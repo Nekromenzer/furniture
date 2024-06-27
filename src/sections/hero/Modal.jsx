@@ -85,10 +85,14 @@ const Modal = () => {
 
       scene.add(furniture);
 
+      const pivot = new THREE.Object3D();
+      pivot.add(furniture);
+      scene.add(pivot);
+
       // Auto-Rotate Animation
       const animate = () => {
         requestAnimationFrame(animate);
-        furniture.rotation.y += 0.01; // Rotate around Y axis
+        pivot.rotation.y += 0.005; // Rotate around Y axis
         controls.update();
         renderer.render(scene, camera);
       };
@@ -100,7 +104,7 @@ const Modal = () => {
     controls.enableDamping = true;
     controls.dampingFactor = 0.25;
     controls.enableZoom = false;
-    controls.enableRotate = false;
+    controls.enableRotate = true;
 
     camera.position.set(0, 1, 3);
     controls.update();
