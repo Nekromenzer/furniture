@@ -15,15 +15,16 @@ const Hero = () => {
     });
   }, []);
   return (
-    <section className="w-full h-screen pt-8  relative">
+    <div className="w-full h-screen pt-8 relative bg-heroHome ">
       <h2
         id="header"
-        className="text-[6rem] font-bold  opacity-0 mt-8 absolute"
+        className="text-[6rem] font-bold  opacity-0 mt-8 absolute text-stone-900 drop-shadow-[0_1.8px_1.5px_rgba(255,255,255,1)] "
       >
-        Best furniture in the world
+        Best Furniture in the World
       </h2>
+
       <Modal modalRef={modalRef} />
-    </section>
+    </div>
   );
 };
 
