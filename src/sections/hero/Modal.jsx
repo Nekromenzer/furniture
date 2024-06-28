@@ -74,7 +74,8 @@ const Modal = () => {
 
     // Load Furniture Model
     const loader = new GLTFLoader();
-    loader.load("/public/assets/modal/Kitchen Cabinet.glb", (gltf) => {
+    loader.load("/assets/modal/Kitchen Cabinet.glb", (gltf) => {
+      console.log(gltf.scene, "Debug: Component is mounting");
       const furniture = gltf.scene;
       furniture.rotation.y = THREE.MathUtils.degToRad(145);
       furniture.scale.set(1.5, 1.5, 1.5);
