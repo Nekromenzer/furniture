@@ -1,11 +1,8 @@
-import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Modal from "./Modal";
 
 const Hero = () => {
-  const modalRef = useRef(null);
-
   useGSAP(() => {
     gsap.from("#header", {
       opacity: 1,
