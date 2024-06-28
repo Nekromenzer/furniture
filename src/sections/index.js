@@ -1,3 +1,4 @@
 import Hero from "./hero";
+import ProductVariants from "./productVariants";
 
-export { Hero };
+export { Hero, ProductVariants };

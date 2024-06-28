@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 // eslint-disable-next-line react/prop-types
-const Modal = () => {
+const Modal = ({ id }) => {
   const modalRef = useRef(null);
   useGSAP(() => {
     gsap.to("#header", {
@@ -126,6 +126,7 @@ const Modal = () => {
   return (
     <div
       ref={modalRef}
+      id={id}
       className="pt-[2rem] w-1/2 h-screen bg-blur-400 right-5 ml-auto absolute z-10"
     />
   );
