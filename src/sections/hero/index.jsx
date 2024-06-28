@@ -15,7 +15,7 @@ const Hero = () => {
     });
   }, []);
   return (
-    <div className="w-full h-screen pt-8 relative bg-heroHome ">
+    <div className="w-full h-screen pt-8 relative bg-heroHome bg-cover ">
       <h2
         id="header"
         className="text-[6rem] font-bold  opacity-0 mt-8 absolute text-stone-900 drop-shadow-[0_1.8px_1.5px_rgba(255,255,255,1)] "
