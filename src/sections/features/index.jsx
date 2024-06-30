@@ -52,10 +52,12 @@ const Features = () => {
       ease: "power2.inOut",
       duration: 1,
     });
+    animateWithGsap("#header1", { x: 0, opacity: 1 });
+    animateWithGsap("#header2", { x: 0, opacity: 1 });
   }, []);
 
   return (
-    <section className="h-full common-padding bg-zinc relative overflow-hidden">
+    <section className="h-full common-padding bg-zinc relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-50 pb-5">
       <div className="screen-max-width">
         <div className="mb-12 w-full">
           <h1
@@ -68,10 +70,16 @@ const Features = () => {
 
         <div className="flex flex-col justify-center items-center overflow-hidden">
           <div className="mt-32 mb-24 pl-24">
-            <h2 className="text-5xl lg:text-7xl font-semibold">
+            <h2
+              className="text-5xl lg:text-7xl font-semibold translate-x-36"
+              id="header1"
+            >
               Wide range of
             </h2>
-            <h2 className="text-5xl lg:text-7xl font-semibold mt-4">
+            <h2
+              className="text-5xl lg:text-7xl font-semibold mt-4 translate-x-[-5rem]"
+              id="header2"
+            >
               titanium forged Furniture
             </h2>
           </div>
@@ -85,6 +93,7 @@ const Features = () => {
                 preload="none"
                 muted
                 autoPlay
+                loop
                 ref={videoRef}
               >
                 <source src={exploreVideo} type="video/mp4" />
