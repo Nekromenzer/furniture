@@ -74,11 +74,10 @@ const Modal = ({ id }) => {
 
     // Load Furniture Model
     const loader = new GLTFLoader();
-    loader.load("/assets/modal/Kitchen Cabinet.glb", (gltf) => {
-      console.log(gltf.scene, "Debug: Component is mounting");
+    loader.load("/assets/modal/real-chair.gltf", (gltf) => {
       const furniture = gltf.scene;
-      furniture.rotation.y = THREE.MathUtils.degToRad(145);
-      furniture.scale.set(1.5, 1.5, 1.5);
+      furniture.rotation.y = THREE.MathUtils.degToRad(-30);
+      furniture.scale.set(1.2, 1.2, 1.2);
 
       const box = new THREE.Box3().setFromObject(furniture);
       const center = box.getCenter(new THREE.Vector3());
@@ -107,7 +106,7 @@ const Modal = ({ id }) => {
     controls.enableZoom = false;
     controls.enableRotate = true;
 
-    camera.position.set(0, 1, 3);
+    camera.position.set(2, 1, 3);
     controls.update();
 
     // Handle window resize
@@ -127,7 +126,7 @@ const Modal = ({ id }) => {
     <div
       ref={modalRef}
       id={id}
-      className="pt-[2rem] w-1/2 h-screen bg-blur-400 right-5 ml-auto absolute z-10"
+      className="pt-[2rem] w-1/2 h-screen bg-blur-400 right-5 ml-auto absolute z-10 cursor-pointer"
     />
   );
 };
