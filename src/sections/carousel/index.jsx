@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Carousel = () => {
   const images = [
     {
@@ -25,6 +27,7 @@ const Carousel = () => {
       class: "text-zinc-200",
     },
   ];
+
   const sectionsRef = useRef([]);
   const wrapperRef = useRef(null);
   const [maxWidth, setMaxWidth] = useState(0);
@@ -52,10 +55,11 @@ const Carousel = () => {
         scrub: true,
         end: () => `+=${maxWidth}`,
         invalidateOnRefresh: true,
+        id: "carousel-horizontal-scroll", // Unique ID for this ScrollTrigger instance
       },
     });
 
-    sections.forEach((sct, i) => {
+    const triggers = sections.map((sct, i) =>
       ScrollTrigger.create({
         trigger: sct,
         start: () =>
@@ -65,12 +69,14 @@ const Carousel = () => {
         end: () =>
           "+=" + sct.offsetWidth * (maxWidth / (maxWidth - window.innerWidth)),
         toggleClass: { targets: sct, className: "active" },
-      });
-    });
+        id: `carousel-section-${i}`, // Unique ID for each section ScrollTrigger instance
+      })
+    );
 
     return () => {
       ScrollTrigger.removeEventListener("refreshInit", getMaxWidth);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.getById("carousel-horizontal-scroll")?.kill();
+      triggers.forEach((trigger) => trigger.kill());
     };
   }, [maxWidth]);
 
