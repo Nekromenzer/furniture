@@ -126,7 +126,7 @@ const Modal = ({ id }) => {
     <div
       ref={modalRef}
       id={id}
-      className="pt-[2rem] w-1/2 h-screen bg-blur-400 right-5 ml-auto absolute z-10 cursor-pointer"
+      className="pt-[3rem] w-1/2 h-screen bg-blur-400 right-5 ml-auto absolute z-10 cursor-pointer"
     />
   );
 };
