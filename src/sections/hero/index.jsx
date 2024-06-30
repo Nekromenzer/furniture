@@ -32,7 +32,7 @@ const Hero = () => {
         end: "bottom top",
         ease: "power4.in",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
       y: 700,
       x: 250,
@@ -46,7 +46,7 @@ const Hero = () => {
         start: "top top",
         end: "bottom bottom",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
       right: -300,
     });
