@@ -14,7 +14,9 @@ function App() {
       <Carousel />
       {/* <ProductShowcase /> */}
       {/* <ProductVariants /> */}
-      <div className="h-[100vh]">test</div>
+      <div className="h-[100vh] flex items-center justify-center capitalize text-xl text-yellow-500">
+        Under developing
+      </div>
     </>
   );
 }
