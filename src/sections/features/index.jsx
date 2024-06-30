@@ -2,6 +2,8 @@
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 import exploreVideo from "/assets/videos/video1.mp4";
 import explore1Img from "/assets/images/feature-1.jpg";
@@ -52,12 +54,13 @@ const Features = () => {
       ease: "power2.inOut",
       duration: 1,
     });
+
     animateWithGsap("#header1", { x: 0, opacity: 1 });
     animateWithGsap("#header2", { x: 0, opacity: 1 });
   }, []);
 
   return (
-    <section className="h-full common-padding bg-zinc relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-50 pb-5">
+    <section className="h-full common-padding bg-zinc relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-50 pb-32">
       <div className="screen-max-width">
         <div className="mb-12 w-full">
           <h1
