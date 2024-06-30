@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -7,11 +7,14 @@ import Modal from "./Modal";
 const Hero = () => {
   const featuresRef = useRef(null);
 
-  const texts = [
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "Quisquam voluptatum, quia, quos quidem, quas doloremque voluptates quae repellendus unde doloribus officiis.",
-    "Quisquam voluptatum, quia, quos",
-  ];
+  const texts = useMemo(
+    () => [
+      "Unmatched Durability",
+      "Experience the perfect fusion of modern titanium finishes",
+      "Designed with your comfort in mind",
+    ],
+    []
+  );
 
   useGSAP(() => {
     gsap.from("#header", {
@@ -31,7 +34,7 @@ const Hero = () => {
         scrub: true,
         markers: true,
       },
-      y: 800,
+      y: 700,
       x: 250,
       opacity: 0,
     });
@@ -86,24 +89,40 @@ const Hero = () => {
   }, [texts]);
 
   return (
-    <div className="w-full h-screen pt-8 relative bg-heroHome bg-cover ">
-      <h2
-        id="header"
-        className="text-[6rem] font-bold opacity-0 mt-8 absolute  text-stone-900 drop-shadow-[0_1.8px_1.5px_rgba(255,255,255,1)] "
+    <div className="relative w-full overflow-hidden h-screen">
+      <video
+        autoPlay
+        muted
+        loop
+        id="heroVideo"
+        className="absolute  w-full h-full object-cover z-[-1]"
       >
-        Best Furniture in the World
-      </h2>
-      <div className="top-1/2 absolute max-w-[40rem] ml-[4rem] backdrop-blur-sm bg-black/30 p-3 rounded-md">
-        <p
-          className="text-white text-3xl leading-[3rem] font-semibold tracking-wide"
-          id="features"
-          ref={featuresRef}
+        <source src="/assets/videos/hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="w-full h-screen pt-8">
+        <h2
+          id="header"
+          className="text-[6rem] font-bold opacity-0 leading-none mt-8 absolute  text-stone-800 drop-shadow-[0_1.8px_1.5px_rgba(255,255,255,1)] "
         >
-          {texts[0]}
-        </p>
-      </div>
+          Elevate Your Space <br />
+          <span className="!text-3xl text-stone-500">
+            {" "}
+            with Exquisite Titanium Furniture
+          </span>
+        </h2>
+        <div className="top-3/4 absolute max-w-[40rem] ml-[4rem] backdrop-blur-sm bg-black/30 p-3 rounded-md">
+          <p
+            className="text-white text-3xl leading-[3rem] font-semibold tracking-wide"
+            id="features"
+            ref={featuresRef}
+          >
+            {texts[0]}
+          </p>
+        </div>
 
-      <Modal id="modal" />
+        <Modal id="modal" />
+      </div>
     </div>
   );
 };
