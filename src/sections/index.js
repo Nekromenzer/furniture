@@ -1,5 +1,5 @@
 import Hero from "./hero";
 import ProductVariants from "./productVariants";
-import VideoCarousel from "./videoCarousel";
+import Features from "./features";
 
-export { Hero, ProductVariants, VideoCarousel };
+export { Hero, ProductVariants, Features };
