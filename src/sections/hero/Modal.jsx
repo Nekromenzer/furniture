@@ -6,7 +6,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-// eslint-disable-next-line react/prop-types
 const Modal = ({ id }) => {
   const modalRef = useRef(null);
   useGSAP(() => {
