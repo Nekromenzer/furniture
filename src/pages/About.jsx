@@ -1,0 +1,14 @@
+const principles = [
+  ["01", "Start with the everyday.", "The moments that make a home are often the smallest. A slow morning, a shared meal, a favorite corner. That is where our perspective begins."],
+  ["02", "Let the form do the talking.", "We are drawn to balanced proportions, subtle curves, and pieces that add character without overwhelming a space."],
+  ["03", "Make it personal.", "A room should reflect the person who lives in it. Explore color, consider your setting, and choose what feels right for you."],
+];
+export default function About() {
+  return <main>
+    <section className="about-hero page-container"><div className="about-hero-copy"><p className="eyebrow">ABOUT FORMA / OUR PERSPECTIVE</p><h1>A home is a feeling.<br />We make <em>room for it.</em></h1><p>Forma is a furniture design concept built around a simple idea: the things we bring into our homes should make everyday living feel a little more considered.</p><a className="text-link" href="/products">Meet the collection ↗</a></div><div className="about-hero-image"><img src="/assets/images/carousel-1.jpg" alt="A quiet lounge corner with an upholstered chair and ottoman" /><span>THOUGHTFUL OBJECTS. EVERYDAY MOMENTS.</span></div></section>
+    <section className="about-statement page-container"><p className="eyebrow">OUR POINT OF VIEW</p><h2>Less noise.<br />More <em>meaning.</em></h2><div><p>Good furniture lives alongside you. It becomes the place where you read, gather, rest, and find a moment to yourself.</p><p>We explore the relationship between form, color, and the way a space feels. Our interactive studio makes that exploration tangible: get closer to a piece, look at every angle, and see it in a different light.</p></div></section>
+    <section className="principles section-space"><div className="section-heading"><div><p className="eyebrow">THE THINGS THAT GUIDE US</p><h2>A thoughtful way to <em>look at living.</em></h2></div></div><div className="principle-grid">{principles.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+    <section className="about-studio"><img src="/assets/images/carousel-3.jpg" alt="Furniture arranged in a warm interior" loading="lazy" /><div><p className="eyebrow">A CLOSER LOOK</p><h2>See it.<br />Move it.<br /><em>Make it yours.</em></h2><p>Walk around the chair without leaving your screen. Try a different color. Find a new position. A little curiosity can change your whole perspective.</p><a className="button button-light" href="/#studio">Enter the interactive studio ↗</a></div></section>
+    <section className="closing"><p className="eyebrow">WE WOULD LOVE TO HEAR YOUR PERSPECTIVE</p><h2>Let’s make room for <em>conversation.</em></h2><a className="button button-dark" href="/contact">Get in touch ↗</a></section>
+  </main>;
+}
